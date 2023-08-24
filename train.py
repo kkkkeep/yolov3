@@ -1,6 +1,6 @@
-import torch.optim
+# import torch.optim
 from tqdm import tqdm
-
+import torch
 from yolo_v3 import yolo_v3_net
 from arg_parse import arg_parser
 from loss_func import yolo_v3_loss
