@@ -31,6 +31,6 @@ def data_process(anno_path):
             f.write(' '.join(data) + '\n')
 if __name__ == '__main__':
     annotation_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/Annotations/"
-    # data_process(annotation_path)
+    data_process(annotation_path)
     # print(len(os.listdir(annotation_path)))
-    print(len(CLASS))
+    # print(len(CLASS))
