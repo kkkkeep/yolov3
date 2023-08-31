@@ -7,7 +7,7 @@ CLASS = ['person', 'bird', 'cat', 'cow', 'dog', 'horse', 'sheep',
 
 def data_process(anno_path):
     xml_list = os.listdir(anno_path)
-    with open("/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/label.txt", 'w') as f:
+    with open("/mnt/data/voc_2007/label.txt", 'w') as f:
         for xml_file_name in xml_list:
             data = []
             xml_file = os.path.join(anno_path, xml_file_name)
@@ -30,7 +30,7 @@ def data_process(anno_path):
             data = [str(i) for i in data]
             f.write(' '.join(data) + '\n')
 if __name__ == '__main__':
-    annotation_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/Annotations/"
+    annotation_path = "/mnt/data/voc_2007/Annotations/"
     data_process(annotation_path)
-    # print(len(os.listdir(annotation_path)))
-    # print(len(CLASS))
+    print(len(os.listdir(annotation_path)))
+    print(len(CLASS))
