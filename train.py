@@ -42,7 +42,7 @@ def train(net, loss, optimizer, data, device, epochs):
 
 if __name__ == '__main__':
     args = arg_parser_aliyun()
-    logging.basicConfig(filename='logging', level=logging.DEBUG)
+    logging.basicConfig(filename='/mnt/data/logging.txt', level=logging.DEBUG)
     net = yolo_v3_net(args).to(args.device)
     # net.load_state_dict(torch.load("/home/zxj/lkl_study/CV/yolov2/model/c=0.3_v3.pkl"))
     loss = yolo_v3_loss()
