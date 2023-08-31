@@ -7,7 +7,7 @@ CLASS = ['person', 'bird', 'cat', 'cow', 'dog', 'horse', 'sheep',
 
 def data_process(anno_path):
     xml_list = os.listdir(anno_path)
-    with open("/mnt/data/voc_2007/pascal_voc_2007_train/label.txt", 'w') as f:
+    with open("/mnt/data/pascal_voc_2007_train/voc_2007/label.txt", 'w') as f:
         for xml_file_name in xml_list:
             data = []
             xml_file = os.path.join(anno_path, xml_file_name)
