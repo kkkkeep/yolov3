@@ -1,6 +1,6 @@
 import os
 from xml.etree import ElementTree as ET
-
+from tqdm import tqdm
 CLASS = ['person', 'bird', 'cat', 'cow', 'dog', 'horse', 'sheep',
            'aeroplane', 'bicycle', 'boat', 'bus', 'car', 'motorbike', 'train',
            'bottle', 'chair', 'diningtable', 'pottedplant', 'sofa', 'tvmonitor']
@@ -8,7 +8,7 @@ CLASS = ['person', 'bird', 'cat', 'cow', 'dog', 'horse', 'sheep',
 def data_process(anno_path):
     xml_list = os.listdir(anno_path)
     with open("/mnt/data/pascal_voc_2007_train/voc_2007/label.txt", 'w') as f:
-        for xml_file_name in xml_list:
+        for xml_file_name in tqdm(xml_list):
             data = []
             xml_file = os.path.join(anno_path, xml_file_name)
             et = ET.parse(xml_file)
