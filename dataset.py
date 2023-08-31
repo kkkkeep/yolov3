@@ -33,8 +33,8 @@ class yolo_v3_dataset(Dataset):
 
 
 if __name__ == '__main__':
-    label_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/label.txt"
-    img_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/JPEGImages/"
+    # label_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/label.txt"
+    # img_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/JPEGImages/"
 
 
     da = yolo_v3_dataset(label_path, img_path)

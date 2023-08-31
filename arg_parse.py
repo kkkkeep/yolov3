@@ -26,17 +26,17 @@ def arg_parser():
     return args
 
 def arg_parser_aliyun():
-    label_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/label.txt"
-    img_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/JPEGImages/"
+    label_path = "/mnt/data/label.txt"
+    img_path = "/mnt/data/JPEGImages/"
 
     parser = argparse.ArgumentParser('yolo V3 cfg')
-    parser.add_argument('--cfgfile', default="/home/zxj/lkl_study/CV/yolov2/config-1.yaml",
+    parser.add_argument('--cfgfile', default="/root/code/yolov3/config-1.yaml",
                         help='net cfgfile path')
     parser.add_argument('--cuda', default=True, help='use cuda')
     parser.add_argument('--device', help='which device')
-    parser.add_argument('--label_path', default="/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/label.txt",
+    parser.add_argument('--label_path', default="/mnt/data/label.txt",
                         help='label file path')
-    parser.add_argument('--img_path', default="/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/JPEGImages/",
+    parser.add_argument('--img_path', default="/mnt/data/JPEGImages/",
                         help='img file path')
 
     args = parser.parse_args()
