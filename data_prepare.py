@@ -31,6 +31,7 @@ def data_process(anno_path):
             f.write(' '.join(data) + '\n')
 if __name__ == '__main__':
     annotation_path = "/mnt/data/pascal_voc_2007_train/voc_2007/Annotations/"
+
     data_process(annotation_path)
     print(len(os.listdir(annotation_path)))
     print(len(CLASS))
