@@ -52,4 +52,4 @@ if __name__ == '__main__':
     data = DataLoader(data, batch_size=32, shuffle=True, num_workers=4)
     logging.info('batch_size: 32')
 
-    train(net, loss, optimizer, data, args.device, epochs=10)
+    train(net, loss, optimizer, data, args.device, epochs=200)
