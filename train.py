@@ -32,7 +32,7 @@ def train(net, loss, optimizer, data, device, epochs):
             optimizer.step()
         logging.info(f'epoch: {epoch}, loss: {ll}')
         # print(f'epoch: {epoch}, loss: {ll}')
-        torch.save(net.state_dict(), f"/mnt/data/model/c=0.3_v3.pkl")
+        torch.save(net.state_dict(), f"/share/home/22251009/yolo/yolov3/model/c=0.3_v3.pkl")
         logging.info('Success save')
 
 
@@ -41,8 +41,8 @@ def train(net, loss, optimizer, data, device, epochs):
 
 
 if __name__ == '__main__':
-    args = arg_parser_aliyun()
-    logging.basicConfig(filename='/mnt/data/logging.txt', level=logging.DEBUG)
+    args = arg_parser_HPC()
+    logging.basicConfig(filename='/share/home/22251009/yolo/yolov3/log/loooing.txt', level=logging.DEBUG)
     net = yolo_v3_net(args).to(args.device)
     # net.load_state_dict(torch.load("/home/zxj/lkl_study/CV/yolov2/model/c=0.3_v3.pkl"))
     loss = yolo_v3_loss()

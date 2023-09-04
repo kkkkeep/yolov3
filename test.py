@@ -1,14 +1,14 @@
 import torch
-import torch.nn as nn
-import yaml
-import numpy as np
-from torchvision import transforms
-import cv2
-import arg_parse
-import yolo_v3
-from utils import *
-from matplotlib import pyplot as plt
-from PIL import Image, ImageDraw
+# import torch.nn as nn
+# import yaml
+# import numpy as np
+# from torchvision import transforms
+# import cv2
+# import arg_parse
+# import yolo_v3
+# from utils import *
+# from matplotlib import pyplot as plt
+# from PIL import Image, ImageDraw
 
 
 # with open("/home/zxj/lkl_study/CV/yolov2/config.yaml", 'r') as f:
@@ -72,62 +72,62 @@ from PIL import Image, ImageDraw
 # l = loss(pre, label)
 # print(l)
 
-# pre = torch.tensor([0.8, 0.8, 0.8, 0.8] * 24).reshape((4, 4, 6))
-# label = torch.ones((4, 4, 6))
+# # pre = torch.tensor([0.8, 0.8, 0.8, 0.8] * 24).reshape((4, 4, 6))
+# # label = torch.ones((4, 4, 6))
+# #
+# # loss = nn.BCELoss(reduction='none')
+# # a = loss(pre[..., 1:5], label[..., 1:5])
+# #
+# # print(a)
 #
-# loss = nn.BCELoss(reduction='none')
-# a = loss(pre[..., 1:5], label[..., 1:5])
+# # print(pre)
+# # print(label.shape)
 #
-# print(a)
-
-# print(pre)
-# print(label.shape)
-
-test_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/JPEGImages/009175.jpg"
-args = arg_parse.arg_parser()
-
-in_img, scale_factor = generate_mask(test_path)
-print(type(in_img))
+# test_path = "/home/zxj/lkl_study/CV/yolov2/data/VOCdevkit/VOC2007/JPEGImages/009175.jpg"
+# args = arg_parse.arg_parser()
+#
+# in_img, scale_factor = generate_mask(test_path)
+# print(type(in_img))
+# # plt.imshow(in_img)
+# # plt.show()
+#
+# in_img_1 = transforms.ToTensor()(in_img).unsqueeze(0).to(args.device)
+#
+# net = yolo_v3.yolo_v3_net(args)
+#
+# net.load_state_dict(torch.load("/home/zxj/lkl_study/CV/yolov2/model/c=0.3_v3.pkl"))
+#
+# net.to(args.device)
+#
+# pre = net(in_img_1)
+#
+# mask_1 = pre[0][..., 0] > 0.95
+# mask_2 = pre[1][..., 0] > 0.97
+# mask_3 = pre[2][..., 0] > 0.97
+#
+# # print(mask_1.shape)
+# # print(pre[0][mask_1].shape)
+# # print(pre[0][mask_1][:, 1:5] / scale_factor)
+# out = pre[0][mask_1][:, 1:5] / scale_factor
+# out = out.cpu().detach().numpy()
+# print(out.shape)
+# b = np.empty_like(out)
+# b[:, 0] = out[:, 0] - out[:, 2] / 2
+# b[:, 1] = out[:, 1] - out[:, 3] / 2
+# b[:, 2] = out[:, 0] + out[:, 2] / 2
+# b[:, 3] = out[:, 1] + out[:, 3] / 2
+# # img = cv2.imread(test_path)
+# a = ImageDraw.ImageDraw(in_img)
+#
+# for i in range(30, 40):
+#     x1 = int(b[i, 0])
+#     y1 = int(b[i, 1])
+#     x2 = int(b[i, 2])
+#     y2 = int(b[i, 3])
+#     # print(x1, y1, x2, y2)
+#     a.rectangle(((x1, y1), (x2, y2)), outline='red', width=2)
 # plt.imshow(in_img)
 # plt.show()
-
-in_img_1 = transforms.ToTensor()(in_img).unsqueeze(0).to(args.device)
-
-net = yolo_v3.yolo_v3_net(args)
-
-net.load_state_dict(torch.load("/home/zxj/lkl_study/CV/yolov2/model/c=0.3_v3.pkl"))
-
-net.to(args.device)
-
-pre = net(in_img_1)
-
-mask_1 = pre[0][..., 0] > 0.95
-mask_2 = pre[1][..., 0] > 0.97
-mask_3 = pre[2][..., 0] > 0.97
-
-# print(mask_1.shape)
-# print(pre[0][mask_1].shape)
-# print(pre[0][mask_1][:, 1:5] / scale_factor)
-out = pre[0][mask_1][:, 1:5] / scale_factor
-out = out.cpu().detach().numpy()
-print(out.shape)
-b = np.empty_like(out)
-b[:, 0] = out[:, 0] - out[:, 2] / 2
-b[:, 1] = out[:, 1] - out[:, 3] / 2
-b[:, 2] = out[:, 0] + out[:, 2] / 2
-b[:, 3] = out[:, 1] + out[:, 3] / 2
-# img = cv2.imread(test_path)
-a = ImageDraw.ImageDraw(in_img)
-
-for i in range(30, 40):
-    x1 = int(b[i, 0])
-    y1 = int(b[i, 1])
-    x2 = int(b[i, 2])
-    y2 = int(b[i, 3])
-    # print(x1, y1, x2, y2)
-    a.rectangle(((x1, y1), (x2, y2)), outline='red', width=2)
-plt.imshow(in_img)
-plt.show()
 #     cv2.rectangle(img, pt1 = (x1, y1), pt2=(x2, y2), color=(155, 155, 155), thickness=2)
 # cv2.imwrite("/home/zxj/lkl_study/CV/yolov2/data/test.jpg", img)
 # print(pre[1][mask_2].shape)
@@ -144,3 +144,5 @@ plt.show()
 # print(pre[0].shape)
 # print(pre[1].shape)
 # print(pre[2].shape)
+
+print(torch.cuda.is_available())

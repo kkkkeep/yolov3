@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from PIL import Image
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 def predict_transform(prediction, inp_size, anchors, num_class, device):
     '''
@@ -62,7 +62,7 @@ def generate_mask(img_path):
     h, w = img.size
     size = max(h, w)
     mask = Image.new(mode='RGB', size=(size, size), color=(0, 0, 0))
-    plt.imshow(mask)
+    # plt.imshow(mask)
     mask.paste(img, box=(0, 0))
     mask = mask.resize((416, 416))
 
