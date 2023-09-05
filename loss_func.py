@@ -35,7 +35,7 @@ class yolo_v3_loss(nn.Module):
         # 类别损失
         class_loss = nn.BCELoss()(pre[obj_mask][..., 5:], label[obj_mask][..., 5:])
 
-        return c * corr_loss + (1 - c) * 0.8 * obj_confi_loss + (1 - c) * 0.2 * class_loss
+        return c * corr_loss + (1 - c) * 0.9 * obj_confi_loss + (1 - c) * 0.1 * class_loss
 
 
         # 计算13 * 13的损失
